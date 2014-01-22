@@ -1,20 +1,12 @@
 package tw.tanbirka;
-import java.util.*;
 
-public class Person implements Comparable<Person>{
-    public String name;
-    public int age;
+public class Person {
+    private int age;
+    private String name;
 
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getAge() {
@@ -25,31 +17,11 @@ public class Person implements Comparable<Person>{
         this.age = age;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Person)) return false;
-
-        Person person = (Person) o;
-
-        if (age != person.age) return false;
-        if (name != null ? !name.equals(person.name) : person.name != null) return false;
-
-        return true;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + age;
-        return result;
-
+    public void setName(String name) {
+        this.name = name;
     }
-
-    @Override
-    public int compareTo(Person o) {
-        return this.name.compareTo(o.getName());
-    }
-
 }
-
